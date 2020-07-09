@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../wigdets/category_item.dart';
+import '../widgets/category_item.dart';
 import '../Dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -8,7 +8,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "New Project",
+          "GrabFood",
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
