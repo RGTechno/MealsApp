@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/tabs_screen.dart';
 import './screens/meal_detail_screen.dart';
 import './screens/category_item_screen.dart';
 
@@ -17,24 +18,33 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
-                  fontSize: 24,
-                  fontFamily: "MontserratSemiBold",
-                  color: Colors.white),
+                fontSize: 24,
+                fontFamily: "MontserratSemiBold",
+                color: Colors.white,
+              ),
               headline5: TextStyle(
                 fontSize: 19,
                 fontFamily: "MontserratLight",
                 fontWeight: FontWeight.bold,
               ),
+              headline4: TextStyle(
+                fontSize: 19,
+                fontFamily: "MontserratLight",
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: CategoriesScreen(),
-//      initialRoute: "/",
+//      home: ,
+      initialRoute: "/",
       routes: {
-//        "/": (ctx) => CategoriesScreen(),
+        "/": (ctx) => TabsScreen(),
         "/category": (ctx) => CategorySelected(),
         "/detail": (ctx) => MealDetailScreen(),
       },
+//      onGenerateRoute: () {},
+//      onUnknownRoute: () {},
     );
   }
 }
