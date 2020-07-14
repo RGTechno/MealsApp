@@ -8,6 +8,7 @@ class MealsScreen extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
   final int duration;
+  final Function removeItem;
 
   MealsScreen({
     @required this.id,
@@ -16,6 +17,7 @@ class MealsScreen extends StatelessWidget {
     @required this.title,
     @required this.imageUrl,
     @required this.duration,
+    @required this.removeItem,
   });
 
   String get complexityText {
@@ -51,9 +53,17 @@ class MealsScreen extends StatelessWidget {
   }
 
   void mealSelected(BuildContext context) {
-    Navigator.of(context).pushNamed(
+    Navigator.of(context)
+        .pushNamed(
       "/detail",
       arguments: id,
+    )
+        .then(
+      (value) {
+        if (value != null) {
+          removeItem(value);
+        }
+      },
     );
   }
 

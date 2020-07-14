@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import '../Dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
+  final Function toggleFavourite;
+  final Function isFavourite;
+
+  MealDetailScreen(this.toggleFavourite, this.isFavourite);
+
   Widget buildDetailTitle(BuildContext context, String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),
@@ -58,7 +63,12 @@ class MealDetailScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         selectedMeal.ingredients[index],
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontFamily: "MontserratLight",
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   );
@@ -76,7 +86,13 @@ class MealDetailScreen extends StatelessWidget {
                         leading: CircleAvatar(
                           child: Text("# ${(index + 1)}"),
                         ),
-                        title: Text(selectedMeal.steps[index]),
+                        title: Text(
+                          selectedMeal.steps[index],
+                          style: TextStyle(
+                            fontFamily: "MontserratLight",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                       Divider(),
                     ],
@@ -87,6 +103,12 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          isFavourite(routeArgsId) ? Icons.star : Icons.star_border,
+        ),
+        onPressed: () => toggleFavourite(routeArgsId),
       ),
     );
   }
